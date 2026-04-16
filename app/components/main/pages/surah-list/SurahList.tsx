@@ -56,12 +56,12 @@ const SurahList = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 pt-8">
+      <div className="container mx-auto px-4 pt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {currentSurahs.map((surah) => (
             <Link
               key={surah.id}
-              href={`/surah/${surah.id}`}
+              href={`/ayat/${surah.id}`}
               className="group bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col h-full"
             >
               <div className="flex items-start justify-between mb-4">
