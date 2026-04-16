@@ -7,4 +7,11 @@ export type Surah = {
   total_verses: number;
   current_page: number;
   last_page: number;
+  verses: {
+    [key: string]: {
+      id: number;
+      content: string;
+      translation_eng: string;
+    };
+  };
 };
