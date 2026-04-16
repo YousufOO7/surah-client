@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const Banner = () => {
   return (
-    <div className="relative h-[600px] w-full overflow-hidden flex items-center justify-center">
+    <div className="relative h-150 w-full overflow-hidden flex items-center justify-center">
       {/* Background Image - Elegant Islamic Style */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -15,9 +15,9 @@ const Banner = () => {
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/70" />
 
-      <div className="absolute inset-0 bg-[radial-gradient(#d4af37_0.8px,transparent_1px)] bg-[length:40px_40px] opacity-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(#d4af37_0.8px,transparent_1px)] bg-size-[40px_40px] opacity-10" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
@@ -42,14 +42,13 @@ const Banner = () => {
 
         {/* Optional subtle button (if you want to link to Surah List) */}
         <Button 
-          onClick={() => window.scrollTo({ top: 700, behavior: 'smooth' })}
+          // onClick={() => window.scrollTo({ top: 700, behavior: 'smooth' })}
           className="mt-10 px-8 py-3 bg-amber-500 hover:bg-amber-600 transition-colors text-white font-semibold rounded-xl text-lg shadow-lg"
         >
-          Browse Surahs
+          Show Surahs
         </Button>
       </div>
 
-      
     </div>
   );
 };

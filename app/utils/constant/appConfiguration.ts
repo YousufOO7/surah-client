@@ -17,10 +17,10 @@ const version = "V1.0.0";
 //////////// BETA VERSION ////////////
 
 export const appConfiguration: IConfigurationProps = {
-  appName: "QuickHire",
+  appName: "Surah Task",
   NODE_ENV:"development",
   appCode: "__t_beta__",
-  baseUrl: "https://quick-hire-backend-oaew.onrender.com", 
+  baseUrl: "https://surah-server.vercel.app", 
   PUBLIC_SITE_URL: "http://localhost:3000",
   favicon: "/devs.png",
   invoiceBanner:"/",

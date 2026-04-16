@@ -2,12 +2,12 @@ import { publicNavigationLinks } from "@/app/utils/constant/navigations/publicNa
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaFire, FaFirefoxBrowser } from "react-icons/fa";
+import { FaFirefoxBrowser } from "react-icons/fa";
 
 const PublicNav = () => {
   const pathname = usePathname();
   return (
-    <nav className="border-b bg-[#faf4ec]">
+    <nav className="border-b ">
       <div className="container mx-auto">
         {/* Nav Links */}
         <div className="hidden md:flex items-center justify-between gap-8 text-sm font-medium  text-gray-600">
@@ -22,7 +22,7 @@ const PublicNav = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="border space-x-4 px-2 bg-white rounded-xl flex">
+          <div className=" space-x-4 px-2  flex">
             {publicNavigationLinks.map((link) => (
               <Link
                 key={link.key}
@@ -41,10 +41,9 @@ const PublicNav = () => {
             <Button
               variant="outline"
               size="lg"
-              className="cursor-pointer font-bold bg-pink-200 rounded-md hidden md:flex items-center gap-1"
+              className="cursor-pointer"
             >
-              <span>Get Results</span>
-              <FaFire className="text-red-500 bg-white text-2xl p-0.5" />
+              Login
             </Button>
           </div>
         </div>

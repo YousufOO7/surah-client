@@ -13,26 +13,14 @@ export const publicNavigationLinks: INavigationLinks[] = [
 
   {
     icon: LuListOrdered,
-    label: "Expertises",
-    key: "find-jobs",
-    href: "/find-jobs",
+    label: "Surah List",
+    key: "surah-list",
+    href: "/surah-list",
   },
   {
     icon: LuListOrdered,
-    label: "Work",
-    key: "find-jobs",
-    href: "/find-jobs",
-  },
-  {
-    icon: LuListOrdered,
-    label: "About",
-    key: "find-jobs",
-    href: "/find-jobs",
-  },
-  {
-    icon: LuListOrdered,
-    label: "Contact",
-    key: "find-jobs",
-    href: "/find-jobs",
+    label: "Ayat",
+    key: "ayat",
+    href: "/ayat",
   }
 ];

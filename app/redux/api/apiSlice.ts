@@ -21,5 +21,6 @@ export const apiSlice = createApi({
   tagTypes: [
    "jobs",
     "bookings",
+    "surah"
   ],
 });

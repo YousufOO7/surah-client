@@ -1,32 +1,20 @@
 import { apiSlice } from "../../api/apiSlice";
 
-export const jobsApi = apiSlice.injectEndpoints({
+export const surahsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     // jobs data
-    createJobs: builder.mutation({
-      query: (jobsData) => ({
-        url: "/add-jobs",
-        method: "POST",
-        body: jobsData,
-      }),
-      invalidatesTags: ["jobs"],
-    }),
 
-    jobsApplications: builder.mutation({
-      query: (jobsApplicationData) => ({
-        url: "/applications",
-        method: "POST",
-        body: jobsApplicationData,
-      }),
-      invalidatesTags: ["jobs"],
-    }),
 
-     getAllJobsApplications: builder.query({
-      query: () => ({
-        url: "/allJobsApplications",
+     getAllSurahsList: builder.query({
+      query: ({ per_page = 10, page = 1}) => ({
+        url: "/surah-list",
         method: "GET",
+        params: {
+          per_page,
+          page,
+        },
       }),
-      providesTags: ["jobs"],
+      providesTags: ["surah"],
     }),
 
 
@@ -65,10 +53,8 @@ export const jobsApi = apiSlice.injectEndpoints({
 
 // Export hooks
 export const {
-  useCreateJobsMutation,
+  useGetAllSurahsListQuery,
   useGetAllJobsQuery,
   useGetJobByIdQuery,
   useDeleteJobMutation,
-  useJobsApplicationsMutation,
-  useGetAllJobsApplicationsQuery,
-} = jobsApi;
+} = surahsApi;
