@@ -21,6 +21,9 @@ import { notFound } from "next/navigation";
 import Ayats from "@/app/components/main/pages/ayat/Ayats";
 import { getSurahAyatById } from "@/app/lib/surahAyats";
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 interface PageProps {
   params: Promise<{ id: string }>;
   searchParams?: Promise<{ page?: string }>;

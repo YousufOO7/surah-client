@@ -33,7 +33,14 @@ export interface ApiResponse {
   chapters: Record<string, SurahData>;
 }
 
+const cachedData: ApiResponse | null = null;
+
 export async function getAllSurahs(): Promise<ApiResponse> {
+
+    if (cachedData) {
+    return cachedData;
+  }
+
   try {
     const url = `${appConfiguration.baseUrl}surah-list`;
 
@@ -58,7 +65,9 @@ export async function getAllSurahs(): Promise<ApiResponse> {
     }
 
     const data = await res.json();
-    return data;
+      const responseData = Array.isArray(data) ? data[0] : data;
+    
+    return responseData;
   } catch (error) {
     console.error('[DEBUG] Full fetch error:', error);
     throw new Error(`Failed to load surahs: ${error instanceof Error ? error.message : 'Unknown error'}`);
