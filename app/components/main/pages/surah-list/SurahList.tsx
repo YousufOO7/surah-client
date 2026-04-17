@@ -4,8 +4,6 @@ import { ApiResponse, SurahData } from "@/app/lib/surahAyats";
 import Pagination from "@/app/utils/common/Pagination";
 import Link from "next/link";
 import { useState } from "react";
-import SearchBar from "./SearchBar";
-import { appConfiguration } from "@/app/utils/constant/appConfiguration";
 
 interface SurahListProps {
   initialData: ApiResponse;
@@ -13,40 +11,10 @@ interface SurahListProps {
 
 const SurahList = ({ initialData }: SurahListProps) => {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<ApiResponse>(initialData);
-  const [loading, setLoading] = useState(false);
+  const [data, ] = useState<ApiResponse>(initialData);
+  const [loading, ] = useState(false);
 
   const perPage = 12;
-
- const handleSearch = async (query: string) => {
-  try {
-    if (!query.trim()) {
-      setData(initialData);
-      return;
-    }
-
-    setLoading(true);
-
-    const res = await fetch(
-      `${appConfiguration.baseUrl}search-verses?query=${encodeURIComponent(query)}`
-    );
-
-    const result = await res.json();
-
-    setData(result);
-    setPage(1);
-  } catch (error) {
-    console.error("Search error:", error);
-  } finally {
-    setLoading(false);
-  }
-};
-
-// 🔄 RESET FUNCTION
-const handleReset = () => {
-  setData(initialData);
-  setPage(1);
-};
 
   if (!data) {
     return (
@@ -74,12 +42,6 @@ const handleReset = () => {
             القرآن الكريم
           </h1>
           <p className="text-xl text-zinc-400">The Noble Quran</p>
-
-          {/* 🔍 SEARCH */}
-          <div className="mt-6 px-4">
-            <SearchBar onSearch={handleSearch} onReset={handleReset} />
-          </div>
-
           <p className="mt-4 text-zinc-500">
             {totalSurahs} Surahs • {data?.total_verses ?? 0} Verses
           </p>
@@ -102,7 +64,7 @@ const handleReset = () => {
           {currentSurahs.map((surah) => (
             <Link
               key={surah.id}
-              href={`/ayat/${surah.id}`}
+              href={`/single-surah/${surah.id}`}
               className="group bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col h-full"
             >
               <div className="flex items-start justify-between mb-4">

@@ -9,10 +9,10 @@ const PublicNav = () => {
   return (
     <nav className="border-b container mx-auto">
         {/* Nav Links */}
-        <div className="hidden md:flex items-center justify-between text-sm font-medium  text-gray-600">
+        <div className="hidden md:flex items-center justify-between text-sm font-medium  text-white">
           <div>
             {/* Logo */}
-            <Link href="/" className="text-xl font-bold text-gray-900">
+            <Link href="/" className="text-xl font-bold text-white">
               <p className="gap-1 flex items-center">
                 <FaFirefoxBrowser className="text-yellow-400" />
                 <span>القرآن الكريم</span>
@@ -27,7 +27,7 @@ const PublicNav = () => {
                 key={link.key}
                 href={link.href}
                 className={`text-[12px] font-bold py-4 uppercase  ${
-                  pathname === link.href ? "border-b-2 border-black" : ""
+                  pathname === link.href ? "border-b-2 border-white" : ""
                 }`}
               >
                 {link.label}

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Ayats from "@/app/components/main/pages/ayat/Ayats";
 import { getSurahAyatById } from "@/app/lib/surahAyats";
+import SingleSurah from "@/app/components/main/pages/single-surah/SingleSurah";
 
 export const dynamic = 'force-static';
 
@@ -42,7 +42,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function SurahAyatsPage({
+export default async function SingleSurahPage({
   params: paramsPromise,
   searchParams: searchParamsPromise,
 }: PageProps) {
@@ -62,7 +62,7 @@ export default async function SurahAyatsPage({
 
   return (
     <div>
-      <Ayats surahData={surah} initialPage={parseInt(page)} />
+      <SingleSurah surahData={surah} initialPage={parseInt(page)} />
     </div>
   );
 }

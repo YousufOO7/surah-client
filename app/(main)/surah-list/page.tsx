@@ -33,6 +33,5 @@ export default async function SurahsPage() {
 // Separate component to handle the async data
 async function SurahListWithData({ dataPromise }: { dataPromise: Promise<any> }) {
   const data = await dataPromise;
-  console.log("Fetched Surah List Data:", data); // Debug log to verify data structure
   return <SurahList initialData={data} />;
 }
