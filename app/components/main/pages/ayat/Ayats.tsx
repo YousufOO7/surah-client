@@ -87,7 +87,7 @@ useEffect(() => {
       </div>
 
       {/* Verses List */}
-      <div className="space-y-6">
+      <div className="space-y-6 mb-4 md:mb-10">
         {currentVerses?.map((verse: any, index: number) => {
           const verseNumber = startIndex + index + 1;
           return (
