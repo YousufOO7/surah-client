@@ -16,6 +16,7 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@reduxjs/toolkit": "^2.11.2",
     "class-variance-authority": "^0.7.1",
+    "framer-motion": "^12.38.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "locomotive-scroll": "^5.0.1",

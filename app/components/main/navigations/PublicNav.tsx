@@ -7,10 +7,9 @@ import { FaFirefoxBrowser } from "react-icons/fa";
 const PublicNav = () => {
   const pathname = usePathname();
   return (
-    <nav className="border-b ">
-      <div className="container mx-auto">
+    <nav className="border-b container mx-auto">
         {/* Nav Links */}
-        <div className="hidden md:flex items-center justify-between gap-8 text-sm font-medium  text-gray-600">
+        <div className="hidden md:flex items-center justify-between text-sm font-medium  text-gray-600">
           <div>
             {/* Logo */}
             <Link href="/" className="text-xl font-bold text-gray-900">
@@ -38,16 +37,18 @@ const PublicNav = () => {
 
           {/* Auth Buttons */}
           <div className="flex gap-5 items-center">
+            <Link href="/surah-admin-portal/setting">
             <Button
               variant="outline"
               size="lg"
               className="cursor-pointer"
+              
             >
               Login
             </Button>
+            </Link>
           </div>
         </div>
-      </div>
     </nav>
   );
 };

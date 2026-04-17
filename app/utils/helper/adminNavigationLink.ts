@@ -16,25 +16,16 @@ export interface INavigationLink {
 const admindashboardRootLinks: INavigationLink = {
   icon: LuContact,
   label: {
-    en: "Job List",
+    en: "Settings",
   },
-  key: "/quick-admin-portal/add-jobs",
-  href: "/quick-admin-portal/add-jobs",
+  key: "/surah-admin-portal/setting",
+  href: "/surah-admin-portal/setting",
 };
 
-const applicationsListLink: INavigationLink = {
-  icon: LuContact,
-  label: {
-    en: "Applications List",
-  },
-  key: "/quick-admin-portal/applications-list",
-  href: "/quick-admin-portal/applications-list",
-};
 
 
 
 
 export const adminNavigationLinks: INavigationLink[] = [
   { ...admindashboardRootLinks },
-  { ...applicationsListLink },
 ];
