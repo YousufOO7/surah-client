@@ -14,13 +14,13 @@ import { FaFirefoxBrowser } from "react-icons/fa";
 const MobileNav = () => {
 
   return (
-    <nav className="border-b bg-white md:hidden">
+    <nav className="border-b bg-black md:hidden text-white">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-1 text-xl font-bold text-gray-900"
+          className="flex items-center gap-1 text-xl font-bold text-white"
         >
           <FaFirefoxBrowser className="text-yellow-400" />
           <span>القرآن الكريم</span>
@@ -29,8 +29,8 @@ const MobileNav = () => {
         {/* Menu Trigger */}
         <Sheet>
           <SheetTrigger asChild>
-            <button>
-              <Menu size={22} />
+            <button >
+              <Menu className="text-white" size={22} />
             </button>
           </SheetTrigger>
 
