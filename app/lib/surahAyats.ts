@@ -76,7 +76,7 @@ export async function getAllSurahs(): Promise<ApiResponse> {
 
 export async function getSurahAyatById(id: string): Promise<SurahData | null> {
    try {
-    const url = `${appConfiguration.baseUrl}surah-list/${id}`;
+    const url = `${appConfiguration.baseUrl}ayat/${id}`;
 
     const res = await fetch(url, {
       method: 'GET',

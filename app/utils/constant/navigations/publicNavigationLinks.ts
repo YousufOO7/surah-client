@@ -21,6 +21,6 @@ export const publicNavigationLinks: INavigationLinks[] = [
     icon: LuListOrdered,
     label: "Ayat",
     key: "ayat",
-    href: "/ayat",
+    href: "#",
   }
 ];
