@@ -1,28 +1,9 @@
-// "use client";
-// import Ayats from "@/app/components/main/pages/ayat/Ayats";
-// import { useParams } from "next/navigation";
-
-
-// const SurahAyats = () => {
-//     const params = useParams();
-//   const surahId = params.id as string;
-//     return (
-//         <div>
-//            <Ayats surahId={surahId} />
-//         </div>
-//     );
-// };
-
-// export default SurahAyats;
-
-
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Ayats from "@/app/components/main/pages/ayat/Ayats";
 import { getSurahAyatById } from "@/app/lib/surahAyats";
 
 export const dynamic = 'force-static';
-export const revalidate = false;
 
 interface PageProps {
   params: Promise<{ id: string }>;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "@/app/utils/common/Pagination";
 import { SurahData } from "@/app/lib/surahAyats";
 
@@ -22,7 +22,14 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
   const endIndex = startIndex + ayatsPerPage;
   const currentVerses = verses?.slice(startIndex, endIndex);
 
-  const settings = JSON.parse(localStorage.getItem("quranSettings") || "{}");
+  // const settings = JSON.parse(localStorage.getItem("quranSettings") || "{}");
+  const [settings, setSettings] = useState<any>({});
+
+useEffect(() => {
+  const data = JSON.parse(localStorage.getItem("quranSettings") || "{}");
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setSettings(data);
+}, []);
 
   return (
     <div className="container mx-auto space-y-8 pt-8 px-4">

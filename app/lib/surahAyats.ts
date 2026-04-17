@@ -95,6 +95,7 @@ export async function getSurahAyatById(id: string): Promise<SurahData | null> {
         url,
         errorData
       });
+      return null;
       throw new Error(`Failed to fetch surahs: ${errorData.message || res.statusText}`);
     }
 
