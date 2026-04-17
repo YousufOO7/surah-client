@@ -22,8 +22,8 @@ const MobileNav = () => {
           href="/"
           className="flex items-center gap-1 text-xl font-bold text-gray-900"
         >
-          <FaFirefoxBrowser className="text-blue-600" />
-          <span>Surah Task</span>
+          <FaFirefoxBrowser className="text-yellow-400" />
+          <span>القرآن الكريم</span>
         </Link>
 
         {/* Menu Trigger */}

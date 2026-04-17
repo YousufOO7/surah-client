@@ -14,8 +14,8 @@ const PublicNav = () => {
             {/* Logo */}
             <Link href="/" className="text-xl font-bold text-gray-900">
               <p className="gap-1 flex items-center">
-                <FaFirefoxBrowser className="text-blue-600" />
-                <span>Surah Task</span>
+                <FaFirefoxBrowser className="text-yellow-400" />
+                <span>القرآن الكريم</span>
               </p>
             </Link>
           </div>
