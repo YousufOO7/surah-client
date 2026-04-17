@@ -25,7 +25,7 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
   const settings = JSON.parse(localStorage.getItem("quranSettings") || "{}");
 
   return (
-    <div className="container mx-auto space-y-8 pt-8">
+    <div className="container mx-auto space-y-8 pt-8 px-4">
       {/* Surah Header */}
       <div className="relative mb-16 overflow-hidden rounded-3xl bg-linear-to-br from-zinc-900 via-zinc-900 to-zinc-950 border border-amber-400/30 shadow-2xl">
         {/* Subtle Islamic pattern overlay */}

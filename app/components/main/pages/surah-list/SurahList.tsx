@@ -5,6 +5,7 @@ import Pagination from "@/app/utils/common/Pagination";
 import Link from "next/link";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { appConfiguration } from "@/app/utils/constant/appConfiguration";
 
 interface SurahListProps {
   initialData: ApiResponse;
@@ -17,30 +18,35 @@ const SurahList = ({ initialData }: SurahListProps) => {
 
   const perPage = 12;
 
-  // 🔍 SEARCH FUNCTION
-  const handleSearch = async (query: string) => {
-    try {
-      // যদি input empty হয় → reset
-      if (!query.trim()) {
-        setData(initialData);
-        return;
-      }
-
-      setLoading(true);
-
-      const res = await fetch(
-        `http://localhost:5000/search-verses?query=${query}`
-      );
-      const result = await res.json();
-
-      setData(result);
-      setPage(1); // reset pagination
-    } catch (error) {
-      console.error("Search error:", error);
-    } finally {
-      setLoading(false);
+ const handleSearch = async (query: string) => {
+  try {
+    if (!query.trim()) {
+      setData(initialData);
+      return;
     }
-  };
+
+    setLoading(true);
+
+    const res = await fetch(
+      `${appConfiguration.baseUrl}search-verses?query=${encodeURIComponent(query)}`
+    );
+
+    const result = await res.json();
+
+    setData(result);
+    setPage(1);
+  } catch (error) {
+    console.error("Search error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+// 🔄 RESET FUNCTION
+const handleReset = () => {
+  setData(initialData);
+  setPage(1);
+};
 
   if (!data) {
     return (
@@ -71,7 +77,7 @@ const SurahList = ({ initialData }: SurahListProps) => {
 
           {/* 🔍 SEARCH */}
           <div className="mt-6 px-4">
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} onReset={handleReset} />
           </div>
 
           <p className="mt-4 text-zinc-500">
@@ -87,9 +93,7 @@ const SurahList = ({ initialData }: SurahListProps) => {
 
       {/* ❌ No result */}
       {!loading && totalSurahs === 0 && (
-        <p className="text-center mt-10 text-red-400">
-          No results found 😢
-        </p>
+        <p className="text-center mt-10 text-red-400">No results found 😢</p>
       )}
 
       {/* 📦 Cards */}
@@ -148,12 +152,15 @@ const SurahList = ({ initialData }: SurahListProps) => {
       </div>
 
       {/* 📄 Pagination */}
+
       {lastPage > 1 && !loading && (
-        <Pagination
-          currentPage={page}
-          lastPage={lastPage}
-          onPageChange={setPage}
-        />
+        <div className="mt-4 md:mt-10 px-4">
+          <Pagination
+            currentPage={page}
+            lastPage={lastPage}
+            onPageChange={setPage}
+          />
+        </div>
       )}
     </div>
   );

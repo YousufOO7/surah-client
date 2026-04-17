@@ -23,7 +23,7 @@ const MobileNav = () => {
           className="flex items-center gap-1 text-xl font-bold text-gray-900"
         >
           <FaFirefoxBrowser className="text-blue-600" />
-          <span>Quick Hire</span>
+          <span>Surah Task</span>
         </Link>
 
         {/* Menu Trigger */}
@@ -55,9 +55,11 @@ const MobileNav = () => {
 
               {/* Bottom Login */}
               <div className="px-6 pb-6">
+                <Link href="/surah-admin-portal/setting">
                 <Button variant="default" size="sm" className="cursor-pointer">
                   Login
                 </Button>
+                </Link>
               </div>
             </div>
           </SheetContent>

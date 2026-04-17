@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 const Banner = () => {
@@ -41,12 +42,13 @@ const Banner = () => {
         </p>
 
         {/* Optional subtle button (if you want to link to Surah List) */}
-        <Button 
-          // onClick={() => window.scrollTo({ top: 700, behavior: 'smooth' })}
-          className="mt-10 px-8 py-3 bg-amber-500 hover:bg-amber-600 transition-colors text-white font-semibold rounded-xl text-lg shadow-lg"
+       <Link href={"/surah-list"}>
+        <Button
+          className="mt-10 px-8 cursor-pointer py-3 bg-amber-500 hover:bg-amber-600 transition-colors text-white font-semibold rounded-xl text-lg shadow-lg"
         >
           Show Surahs
         </Button>
+       </Link>
       </div>
 
     </div>

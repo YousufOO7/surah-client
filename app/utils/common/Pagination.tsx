@@ -13,40 +13,82 @@ const Pagination: React.FC<PaginationProps> = ({
   lastPage,
   onPageChange,
 }) => {
-  if (lastPage <= 1) return null; // single page, no pagination needed
+  if (lastPage <= 1) return null;
+
+  const getPages = () => {
+    const pages: (number | string)[] = [];
+
+    // Always show first page
+    pages.push(1);
+
+    // Left dots
+    if (currentPage > 3) {
+      pages.push("...");
+    }
+
+    // Middle pages (current ±1)
+    for (
+      let i = Math.max(2, currentPage - 1);
+      i <= Math.min(lastPage - 1, currentPage + 1);
+      i++
+    ) {
+      pages.push(i);
+    }
+
+    // Right dots
+    if (currentPage < lastPage - 2) {
+      pages.push("...");
+    }
+
+    // Always show last page
+    if (lastPage > 1) {
+      pages.push(lastPage);
+    }
+
+    return pages;
+  };
+
+  const pages = getPages();
 
   return (
-    <div className="flex justify-end items-center gap-2 my-4">
-      <Button
-        disabled={currentPage === 1}
-        onClick={() => onPageChange(currentPage - 1)}
-        className="px-3 py-1 text-sm cursor-pointer"
-      >
-        Previous
-      </Button>
+    <div className="w-full overflow-x-auto">
+      <div className="flex items-center gap-2 my-4 min-w-max">
+        {/* Prev */}
+        <Button
+          disabled={currentPage === 1}
+          onClick={() => onPageChange(currentPage - 1)}
+          size="sm"
+        >
+          Prev
+        </Button>
 
-      {[...Array(lastPage)].map((_, idx) => {
-        const pageNumber = idx + 1;
-        return (
-          <Button
-            key={pageNumber}
-            variant={currentPage === pageNumber ? "default" : "outline"}
-            size="sm"
-            onClick={() => onPageChange(pageNumber)}
-            className="cursor-pointer"
-          >
-            {pageNumber}
-          </Button>
-        );
-      })}
+        {/* Page Numbers */}
+        {pages.map((page, index) =>
+          page === "..." ? (
+            <span key={index} className="px-2 text-zinc-400">
+              ...
+            </span>
+          ) : (
+            <Button
+              key={page}
+              variant={currentPage === page ? "default" : "outline"}
+              size="sm"
+              onClick={() => onPageChange(Number(page))}
+            >
+              {page}
+            </Button>
+          )
+        )}
 
-      <Button
-        disabled={currentPage === lastPage}
-        onClick={() => onPageChange(currentPage + 1)}
-        className="px-3 py-1 text-sm cursor-pointer"
-      >
-        Next
-      </Button>
+        {/* Next */}
+        <Button
+          disabled={currentPage === lastPage}
+          onClick={() => onPageChange(currentPage + 1)}
+          size="sm"
+        >
+          Next
+        </Button>
+      </div>
     </div>
   );
 };

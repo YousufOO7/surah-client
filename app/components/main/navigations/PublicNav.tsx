@@ -15,7 +15,7 @@ const PublicNav = () => {
             <Link href="/" className="text-xl font-bold text-gray-900">
               <p className="gap-1 flex items-center">
                 <FaFirefoxBrowser className="text-blue-600" />
-                <span>Quick Hire</span>
+                <span>Surah Task</span>
               </p>
             </Link>
           </div>
