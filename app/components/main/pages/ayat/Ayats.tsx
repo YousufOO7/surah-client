@@ -22,6 +22,8 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
   const endIndex = startIndex + ayatsPerPage;
   const currentVerses = verses?.slice(startIndex, endIndex);
 
+  const settings = JSON.parse(localStorage.getItem("quranSettings") || "{}");
+
   return (
     <div className="container mx-auto space-y-8 pt-8">
       {/* Surah Header */}
@@ -69,7 +71,8 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
       {/* Verses Count Info */}
       <div className="flex justify-between items-center mb-4 pb-4 border-b border-zinc-800">
         <div className="text-sm text-zinc-500">
-          Showing {startIndex + 1} - {Math.min(endIndex, totalVerses)} of {totalVerses} Ayahs
+          Showing {startIndex + 1} - {Math.min(endIndex, totalVerses)} of{" "}
+          {totalVerses} Ayahs
         </div>
         <div className="text-sm text-amber-400/70">
           Page {page} of {lastPage}
@@ -91,16 +94,20 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 border border-amber-400/30 text-lg font-semibold text-amber-300 shadow-inner transition-colors group-hover:bg-amber-400/10">
                   {verseNumber}
                 </div>
-                <div className="text-xs text-zinc-600">
-                  Verse {verseNumber}
-                </div>
+                <div className="text-xs text-zinc-600">Verse {verseNumber}</div>
               </div>
 
               {/* Arabic Text */}
-              <div className="text-right mb-5">
+              {/* <div className="text-right mb-5">
                 <p className="text-2xl md:text-3xl font-arabic leading-loose text-white tracking-wide">
                   {verse.content}
                 </p>
+              </div> */}
+              <div
+                className={`${settings.arabicFont} text-right text-white`}
+                style={{ fontSize: `${settings.arabicSize}px` }}
+              >
+                {verse.content}
               </div>
 
               {/* Transliteration */}
@@ -113,10 +120,16 @@ const Ayats = ({ surahData, initialPage = 1 }: AyatsProps) => {
               )}
 
               {/* English Translation */}
-              <div className="pt-2">
+              {/* <div className="pt-2">
                 <p className="text-zinc-300 leading-relaxed text-justify">
                   {verse.translation_eng}
                 </p>
+              </div> */}
+              <div
+                style={{ fontSize: `${settings.translationSize}px` }}
+                className="text-zinc-300"
+              >
+                {verse.translation_eng}
               </div>
             </div>
           );

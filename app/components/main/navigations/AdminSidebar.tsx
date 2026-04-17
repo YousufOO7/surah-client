@@ -23,7 +23,7 @@ const AdminSidebarNavigation = () => {
 
   return (
     <section
-      className={`transition-all duration-700 hidden lg:block ${open ? "w-[260px]" : "w-[70px]"
+      className={`transition-all duration-700 hidden lg:block ${open ? "w-65" : "w-17.5"
         }`}
     >
       <motion.aside
